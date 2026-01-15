@@ -58,6 +58,11 @@
             transition: all 0.5s ease;
             filter: grayscale(100%);
         }
+
+        /* Smooth floating animation for the logo */
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(61, 220, 132, 0.4));
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -65,10 +70,11 @@
     <nav class="fixed w-full z-50 nav-blur border-b border-white/5">
         <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-[#3DDC84] rounded flex items-center justify-center">
-                    <i class="fa-solid fa-layer-group text-slate-900 text-sm"></i>
-                </div>
-                <span class="text-lg font-bold tracking-tighter uppercase">Quantum</span>
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-glow">
+                    <path d="M50 5L89.5 27.5V72.5L50 95L10.5 72.5V27.5L50 5Z" stroke="#3DDC84" stroke-width="8" stroke-linejoin="round"/>
+                    <path d="M50 25L71.5 37.5V62.5L50 75L28.5 62.5V37.5L50 25Z" fill="#3DDC84"/>
+                </svg>
+                <span class="text-xl font-bold tracking-tighter uppercase">Quantum</span>
             </div>
             <div class="hidden md:flex gap-10 text-[13px] font-medium tracking-wide text-slate-400">
                 <a href="#technology" class="hover:text-white transition">TECHNOLOGY</a>
@@ -222,11 +228,11 @@
                     <h2 class="text-4xl font-bold tracking-tight leading-tight">Built for the <br> Disciplined Operator.</h2>
                     <p class="text-slate-400 font-light leading-relaxed">Systematic risk-adjusted parameters that eliminate emotional variance 24/7.</p>
                     <div class="grid grid-cols-2 gap-6 pt-6">
-                        <div class="p-6 border-subtle rounded-xl">
+                        <div class="p-6 border-subtle rounded-xl bg-slate-900/10">
                             <p class="text-2xl font-bold">35%</p>
                             <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Max Leverage Power</p>
                         </div>
-                        <div class="p-6 border-subtle rounded-xl">
+                        <div class="p-6 border-subtle rounded-xl bg-slate-900/10">
                             <p class="text-2xl font-bold">0.8ms</p>
                             <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Execution Speed</p>
                         </div>
@@ -327,11 +333,13 @@
     <footer class="py-20 border-t border-white/5 px-8">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
             <div class="space-y-4">
-                <div class="flex items-center gap-2">
-                    <div class="w-5 h-5 bg-[#3DDC84] rounded-sm"></div>
+                <div class="flex items-center gap-3">
+                    <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 5L89.5 27.5V72.5L50 95L10.5 72.5V27.5L50 5Z" stroke="#3DDC84" stroke-width="10" stroke-linejoin="round"/>
+                    </svg>
                     <span class="font-bold text-sm tracking-widest uppercase">QUANTUM</span>
                 </div>
-                <p class="text-slate-600 text-[11px] max-w-xs leading-relaxed">Institutional quantitative trading solutions.</p>
+                <p class="text-slate-600 text-[11px] max-w-xs leading-relaxed">Institutional quantitative trading solutions. Specialized in algorithmic risk management.</p>
             </div>
             <div class="text-[10px] text-slate-700 tracking-[0.2em] uppercase">
                 © 2024 QUANTUM ALGORITHMIC. <span class="text-[#3DDC84] ml-4">• SYSTEM ONLINE</span>
@@ -344,6 +352,8 @@
             const modal = document.getElementById('accessBotModal');
             modal.classList.toggle('hidden');
             modal.classList.toggle('flex');
+            // Prevent scrolling when modal is open
+            document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
         }
 
         function toggleFaq(btn) {
