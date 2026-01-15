@@ -48,6 +48,16 @@
             max-height: 200px;
             padding-bottom: 1.5rem;
         }
+
+        .team-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .team-card img {
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -63,6 +73,7 @@
             <div class="hidden md:flex gap-10 text-[13px] font-medium tracking-wide text-slate-400">
                 <a href="#technology" class="hover:text-white transition">TECHNOLOGY</a>
                 <a href="#execution" class="hover:text-white transition">EXECUTION</a>
+                <a href="#team" class="hover:text-white transition">TEAM</a>
                 <a href="#faq" class="hover:text-white transition">FAQ</a>
             </div>
             <button onclick="toggleModal()" class="border border-[#3DDC84]/30 hover:bg-[#3DDC84] hover:text-black px-6 py-2 rounded text-[12px] font-bold transition-all duration-300 flex items-center gap-2">
@@ -94,6 +105,88 @@
                 <div class="flex items-center gap-3">
                     <i class="fa-solid fa-bolt-lightning text-2xl"></i>
                     <span class="text-xs font-semibold tracking-widest">BYBIT V5 API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-32 px-8 bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="text-[#3DDC84] text-[11px] font-bold tracking-[0.3em] uppercase mb-4">The Minds Behind Quantum</p>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Expert Core <span class="text-slate-500">Team</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=11" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Dr. Aris Thorne</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Chief Strategist</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=12" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Marcus Vane</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Lead Quant</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=13" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Elias Richter</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Risk Management</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=14" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Julian Black</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Backend Dev</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=18" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Arthur Chen</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Data Scientist</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=33" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Viktor Volkov</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Security Lead</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=51" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Leo Castellan</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">API Specialist</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=52" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Silas Moore</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">UI/UX Architect</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=59" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Thomas Wright</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Blockchain Eng.</p>
+                </div>
+                <div class="team-card group text-center">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square border-subtle">
+                        <img src="https://i.pravatar.cc/300?img=68" alt="Team" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm tracking-tight">Nathan Sterling</h4>
+                    <p class="text-[#3DDC84] text-[10px] uppercase font-bold tracking-widest">Financial Analyst</p>
                 </div>
             </div>
         </div>
