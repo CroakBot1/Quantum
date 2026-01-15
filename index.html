@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum | Institutional Algorithmic Trading</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --accent: #3DDC84;
+            --bg: #030712;
+            --surface: #0f172a;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .border-subtle { border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        .nav-blur {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(61, 220, 132, 0.08) 0%, transparent 50%);
+        }
+
+        .stat-line {
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .faq-content.open {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#3DDC84] rounded flex items-center justify-center">
+                    <i class="fa-solid fa-layer-group text-slate-900 text-sm"></i>
+                </div>
+                <span class="text-lg font-bold tracking-tighter uppercase">Quantum</span>
+            </div>
+            <div class="hidden md:flex gap-10 text-[13px] font-medium tracking-wide text-slate-400">
+                <a href="#technology" class="hover:text-white transition">TECHNOLOGY</a>
+                <a href="#execution" class="hover:text-white transition">EXECUTION</a>
+                <a href="#faq" class="hover:text-white transition">FAQ</a>
+            </div>
+            <button onclick="toggleModal()" class="border border-[#3DDC84]/30 hover:bg-[#3DDC84] hover:text-black px-6 py-2 rounded text-[12px] font-bold transition-all duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-robot"></i> HOW TO ACCESS BOT
+            </button>
+        </div>
+    </nav>
+
+    <section class="relative pt-52 pb-32 px-6 hero-gradient overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="flex justify-center mb-8">
+                <span class="px-4 py-1 border border-[#3DDC84]/20 rounded-full text-[#3DDC84] text-[10px] font-black tracking-[0.3em] uppercase">
+                    Institutional Grade
+                </span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
+                Precision in <br><span class="text-slate-500">Execution.</span>
+            </h1>
+            <p class="text-slate-400 max-w-xl mx-auto text-lg font-light leading-relaxed mb-12">
+                Automated liquidity management and systematic trading for <b>Binance</b> and <b>Bybit</b> professionals.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12 mt-20 opacity-60">
+                <div class="flex items-center gap-3">
+                    <i class="fa-brands fa-binance text-2xl"></i>
+                    <span class="text-xs font-semibold tracking-widest">BINANCE CLOUD</span>
+                </div>
+                <div class="h-8 w-[1px] bg-white/10 hidden md:block"></div>
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-bolt-lightning text-2xl"></i>
+                    <span class="text-xs font-semibold tracking-widest">BYBIT V5 API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="py-24 px-8 border-y border-white/5 bg-black/20">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
+            <div class="space-y-4">
+                <p class="text-[#3DDC84] text-[11px] font-bold tracking-widest">01. ARCHITECTURE</p>
+                <h3 class="text-xl font-semibold">Recursive Validation</h3>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">Our proprietary engine filters volatility through a three-stage recursive validation process, ensuring stability.</p>
+                <div class="stat-line w-12"></div>
+            </div>
+            <div class="space-y-4">
+                <p class="text-[#3DDC84] text-[11px] font-bold tracking-widest">02. PERFORMANCE</p>
+                <h3 class="text-xl font-semibold">Low-Latency Gateway</h3>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">Direct API tunneling provides sub-millisecond order routing, maximizing entry precision.</p>
+                <div class="stat-line w-12"></div>
+            </div>
+            <div class="space-y-4">
+                <p class="text-[#3DDC84] text-[11px] font-bold tracking-widest">03. SECURITY</p>
+                <h3 class="text-xl font-semibold">Encrypted Execution</h3>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">End-to-end encryption for API credentials. Your capital remains on-exchange while Quantum manages the risk.</p>
+                <div class="stat-line w-12"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="execution" class="py-32 px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-20 items-center">
+                <div class="flex-1 space-y-8">
+                    <h2 class="text-4xl font-bold tracking-tight leading-tight">Built for the <br> Disciplined Operator.</h2>
+                    <p class="text-slate-400 font-light leading-relaxed">Systematic risk-adjusted parameters that eliminate emotional variance 24/7.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="p-6 border-subtle rounded-xl">
+                            <p class="text-2xl font-bold">35%</p>
+                            <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Max Leverage Power</p>
+                        </div>
+                        <div class="p-6 border-subtle rounded-xl">
+                            <p class="text-2xl font-bold">0.8ms</p>
+                            <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Execution Speed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <div class="rounded-2xl border-subtle bg-slate-900/40 p-2 shadow-2xl font-mono text-[11px] text-[#3DDC84]/80">
+                        <div class="bg-black/40 rounded-xl p-8 border-subtle space-y-3">
+                            <p>> INITIALIZING QUANTUM_CORE_V2...</p>
+                            <p>> CONNECTING TO BINANCE_WSS... [OK]</p>
+                            <p class="text-white">> TREND ALIGNMENT CONFIRMED</p>
+                            <p class="animate-pulse">> MONITORING POSITION...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 px-8 border-t border-white/5 bg-black/10">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 font-bold uppercase tracking-widest">
+                <h2 class="text-3xl mb-4 tracking-tight">System <span class="text-[#3DDC84]">FAQ</span></h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">How is my data secured?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Quantum uses hardware-level encryption. Your API keys are stored locally and are never shared with our servers.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Can I cancel anytime?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Yes. You have full control over the terminal. You can stop all automated processes instantly with a single command.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="accessBotModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="toggleModal()"></div>
+        <div class="relative bg-[#0f172a] border border-white/10 w-full max-w-lg rounded-2xl shadow-2xl p-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold tracking-tight">Access <span class="text-[#3DDC84]">Steps</span></h2>
+                <button onclick="toggleModal()"><i class="fa-solid fa-xmark text-slate-500 hover:text-white transition"></i></button>
+            </div>
+            <div class="space-y-6">
+                <div class="flex gap-4 items-start">
+                    <div class="w-6 h-6 rounded bg-[#3DDC84]/10 text-[#3DDC84] flex items-center justify-center text-[10px] font-bold mt-1">1</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Contact us on Telegram to request your unique access code.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-6 h-6 rounded bg-[#3DDC84]/10 text-[#3DDC84] flex items-center justify-center text-[10px] font-bold mt-1">2</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Install the official Quantum application on your device.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-6 h-6 rounded bg-[#3DDC84]/10 text-[#3DDC84] flex items-center justify-center text-[10px] font-bold mt-1">3</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Launch the app and enter your unique access code.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-6 h-6 rounded bg-[#3DDC84]/10 text-[#3DDC84] flex items-center justify-center text-[10px] font-bold mt-1">4</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Register your fingerprint for biometric security login.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-6 h-6 rounded bg-[#3DDC84] text-black flex items-center justify-center text-[10px] font-black mt-1">5</div>
+                    <div class="space-y-2">
+                        <p class="text-xs text-white leading-relaxed font-semibold">Connect your API Key to initialize trading.</p>
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <a href="https://www.youtube.com/watch?v=EFsuVSrnM1s" target="_blank" class="text-[9px] bg-white/5 border border-white/10 hover:border-[#3DDC84]/50 px-2 py-1 rounded flex items-center gap-1.5 transition text-slate-300">
+                                <i class="fa-brands fa-youtube text-red-500"></i> BYBIT TUTORIAL (V5)
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=Sh_vxYVLnNc" target="_blank" class="text-[9px] bg-white/5 border border-white/10 hover:border-[#3DDC84]/50 px-2 py-1 rounded flex items-center gap-1.5 transition text-slate-300">
+                                <i class="fa-brands fa-youtube text-red-500"></i> BINANCE TUTORIAL
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="https://t.me/AnonymWorld1" target="_blank" class="block w-full mt-10 bg-[#3DDC84] text-black font-bold py-3 rounded text-xs text-center uppercase tracking-widest hover:opacity-90 transition shadow-[0_0_20px_rgba(61,220,132,0.3)]">
+                Contact on Telegram
+            </a>
+        </div>
+    </div>
+
+    <a href="https://t.me/AnonymWorld1" target="_blank" class="fixed bottom-8 right-8 z-[90] bg-[#3DDC84] text-black w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+        <i class="fa-brands fa-telegram text-2xl"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-[10px] py-2 px-4 rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-bold tracking-widest uppercase">Support Online</span>
+    </a>
+
+    <footer class="py-20 border-t border-white/5 px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 bg-[#3DDC84] rounded-sm"></div>
+                    <span class="font-bold text-sm tracking-widest uppercase">QUANTUM</span>
+                </div>
+                <p class="text-slate-600 text-[11px] max-w-xs leading-relaxed">Institutional quantitative trading solutions.</p>
+            </div>
+            <div class="text-[10px] text-slate-700 tracking-[0.2em] uppercase">
+                © 2024 QUANTUM ALGORITHMIC. <span class="text-[#3DDC84] ml-4">• SYSTEM ONLINE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('accessBotModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            content.classList.toggle('open');
+            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    </script>
+</body>
+</html>
