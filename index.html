@@ -18,6 +18,12 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg); 
+            /* GI-MERGE NGA BACKGROUND IMAGE */
+            background-image: linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)), url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #f8fafc;
             scroll-behavior: smooth;
         }
@@ -59,7 +65,6 @@
             filter: grayscale(100%);
         }
 
-        /* Smooth floating animation for the logo */
         .logo-glow {
             filter: drop-shadow(0 0 8px rgba(61, 220, 132, 0.4));
         }
@@ -352,7 +357,6 @@
             const modal = document.getElementById('accessBotModal');
             modal.classList.toggle('hidden');
             modal.classList.toggle('flex');
-            // Prevent scrolling when modal is open
             document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
         }
 
@@ -364,4 +368,4 @@
         }
     </script>
 </body>
-</html>
+                    </html>
