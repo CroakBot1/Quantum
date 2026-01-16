@@ -18,7 +18,6 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg); 
-            /* GI-MERGE NGA BACKGROUND IMAGE */
             background-image: linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)), url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2070&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
@@ -48,11 +47,13 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s ease-in-out;
+            opacity: 0;
         }
         
         .faq-content.open {
-            max-height: 200px;
+            max-height: 500px;
             padding-bottom: 1.5rem;
+            opacity: 1;
         }
 
         .team-card:hover img {
@@ -250,6 +251,7 @@
                             <p>> CONNECTING TO BINANCE_WSS... [OK]</p>
                             <p class="text-white">> TREND ALIGNMENT CONFIRMED</p>
                             <p class="animate-pulse">> MONITORING POSITION...</p>
+                            <p>> LIQUIDITY SCAN ACTIVE</p>
                         </div>
                     </div>
                 </div>
@@ -258,11 +260,15 @@
     </section>
 
     <section id="faq" class="py-32 px-8 border-t border-white/5 bg-black/10">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-16 font-bold uppercase tracking-widest">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="font-bold uppercase tracking-widest mb-10">
                 <h2 class="text-3xl mb-4 tracking-tight">System <span class="text-[#3DDC84]">FAQ</span></h2>
+                <button id="mainFaqBtn" onclick="toggleFaqList()" class="mt-4 border border-[#3DDC84]/50 text-[#3DDC84] px-8 py-3 rounded-full text-[11px] font-black hover:bg-[#3DDC84] hover:text-black transition-all duration-300">
+                    VIEW FREQUENTLY ASKED QUESTIONS
+                </button>
             </div>
-            <div class="space-y-4">
+
+            <div id="faqList" class="hidden space-y-4 text-left">
                 <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
                     <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
                         <span class="text-sm font-semibold tracking-tight">How is my data secured?</span>
@@ -279,6 +285,96 @@
                     </button>
                     <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
                         Yes. You have full control over the terminal. You can stop all automated processes instantly with a single command.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">What is the minimum capital required?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        We recommend a minimum of $500 for proper risk management, though the bot functions on smaller amounts depending on exchange limits.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Does it require a VPS?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Currently, the bot runs directly on your device. Take note: Since it is not on a VPS, the bot will stop trading if your mobile data/internet is off or if the app is closed.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Which trading pairs are supported?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        The bot supports all USDT-Margined Perpetual Futures pairs on both Binance and Bybit.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Is there a monthly subscription fee?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Please contact our Telegram support for the latest pricing structures and promotional plans.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Is my capital safe on the exchange?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Yes. Quantum only uses API connections with "Trade" permissions. "Withdrawal" permissions are disabled for your security.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">How can I monitor the trades?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        You can monitor real-time performance via the Quantum App Dashboard or directly in your Binance/Bybit account.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">What strategy does the bot use?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        Quantum utilizes a combination of Mean Reversion and Trend Following algorithms backed by AI volatility analysis.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Do you have a refund policy?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        As this is a digital service, please review our Terms of Service on Telegram before acquiring an access code.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">How many accounts can I connect?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        A standard access code supports one (1) exchange account. For multi-account management, please contact enterprise support.
+                    </div>
+                </div>
+                <div class="border border-white/5 rounded-xl bg-slate-900/20 overflow-hidden">
+                    <button class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="text-sm font-semibold tracking-tight">Do you provide financial advice?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 text-slate-400 text-xs leading-relaxed">
+                        No. Quantum is a trading tool/software. All trading involves risk, and users are responsible for their own capital allocation.
                     </div>
                 </div>
             </div>
@@ -360,6 +456,18 @@
             document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
         }
 
+        function toggleFaqList() {
+            const list = document.getElementById('faqList');
+            const btn = document.getElementById('mainFaqBtn');
+            if(list.classList.contains('hidden')) {
+                list.classList.remove('hidden');
+                btn.innerText = "HIDE FAQ";
+            } else {
+                list.classList.add('hidden');
+                btn.innerText = "VIEW FREQUENTLY ASKED QUESTIONS";
+            }
+        }
+
         function toggleFaq(btn) {
             const content = btn.nextElementSibling;
             const icon = btn.querySelector('i');
@@ -368,4 +476,4 @@
         }
     </script>
 </body>
-                    </html>
+</html>
